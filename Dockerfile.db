@@ -1,0 +1,24 @@
+# syntax=docker/dockerfile:1.6
+FROM mcr.microsoft.com/azure-sql-edge:latest
+
+ENV ACCEPT_EULA=Y
+ENV MSSQL_PID=Developer
+
+WORKDIR /usr/config
+
+COPY . .
+
+USER root
+
+RUN <<EOF
+#!/bin/bash
+apt update && apt install -y curl
+./bin/download.sh
+pkg=$(find /tmp -name "sqlcmd*.deb")
+dpkg -i "$pkg"
+EOF
+
+USER mssql
+
+ENTRYPOINT ["./bin/entrypoint.sh"]
+# CMD [ "sleep", "infinity" ]

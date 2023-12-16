@@ -1,0 +1,11 @@
+faker==21.0.0 ; python_version >= "3.11" and python_version < "3.13"
+greenlet==3.0.2 ; python_version >= "3.11" and python_version < "3.13" and (platform_machine == "aarch64" or platform_machine == "ppc64le" or platform_machine == "x86_64" or platform_machine == "amd64" or platform_machine == "AMD64" or platform_machine == "win32" or platform_machine == "WIN32")
+numpy==1.26.2 ; python_version >= "3.12" and python_version < "3.13" or python_version == "3.11"
+pandas==2.1.4 ; python_version >= "3.11" and python_version < "3.13"
+pyodbc==5.0.1 ; python_version >= "3.11" and python_version < "3.13"
+python-dateutil==2.8.2 ; python_version >= "3.11" and python_version < "3.13"
+pytz==2023.3.post1 ; python_version >= "3.11" and python_version < "3.13"
+six==1.16.0 ; python_version >= "3.11" and python_version < "3.13"
+sqlalchemy==2.0.23 ; python_version >= "3.11" and python_version < "3.13"
+typing-extensions==4.9.0 ; python_version >= "3.11" and python_version < "3.13"
+tzdata==2023.3 ; python_version >= "3.11" and python_version < "3.13"

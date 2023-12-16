@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  # TODO: uncomment after fixing mssql service
+  # web:
+  #   platform: linux/amd64         # linux/amd64 / linux/arm64/v8
+  #   build:
+  #     context: ./
+  #     dockerfile: Dockerfile.web
+  #   ports:
+  #     - "80:8000"
+  #   depends_on:
+  #     mssql:
+  #       condition: service_started
+  #   command: sh -c "sleep infinity"
+  #   # command: ["python", "app.py"]
+
+  mssql:
+    platform: linux/amd64         # linux/amd64 / linux/arm64/v8
+    # image: mcr.microsoft.com/azure-sql-edge:latest
+    stdin_open: true
+    build:
+      context: ./
+      dockerfile: Dockerfile.db
+    restart: unless-stopped
+    ports:
+      - 1433:${SQL_PORT:-1433}
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "${MSSQL_PASSWORD:?Env variable not set}"
+      MSSQL_PID: Developer
